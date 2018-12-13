@@ -1,0 +1,17 @@
+{
+  "name": "informaticatrentina/itfacetsearch",
+  "version": "1.0",
+  "description": "Trentino Digitale - ITFacetSearch",
+  "type": "ezpublish-legacy-extension",
+  "authors": [
+    {
+      "name": "Trentino Digitale SpA",
+      "homepage": "http://www.trentinodigitale.it"
+    }
+  ],
+  "license": "GPL-2.0",
+  "minimum-stability": "dev",
+  "extra": {
+    "ezpublish-legacy-extension-name": "itfacetsearch"
+  }
+}
