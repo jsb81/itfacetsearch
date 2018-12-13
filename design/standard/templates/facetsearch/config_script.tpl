@@ -3,6 +3,8 @@
 
 {literal}
 <script>
+    let PROTOCOL = window.location.protocol;
+
     // MAPPINGS
     var _ATTR_TYPE = ['Null', 'Search', 'Table', 'Export', 'Import'];
     var _ATTR_DATATYPE = ['Null', 'Input', 'Select', 'Date', 'Tags', 'RadioButton', 'Checkbox'];
@@ -37,7 +39,7 @@
     function setClassAttributes( class_id, class_identifier ){
         contentClasseAttributes = $.ajax({
             "type": "GET",
-            "url": "https://" + siteURL + "/openpa/classdefinition/" + class_id,
+            "url": PROTOCOL + "//" + siteURL + "/openpa/classdefinition/" + class_id,
             "success": function( result ){
                 
                 // Reset
@@ -123,7 +125,7 @@
         $.ajax({
             "type": "GET",
             "data": parameters,
-            "url": "https://" + siteURL + "/facetsearch/facetsearch/" + class_id + "/" + operation,
+            "url": PROTOCOL + "//" + siteURL + "/facetsearch/facetsearch/" + class_id + "/" + operation,
             "success": function( result ){
                 facetsearch_obj = result;
                 
@@ -177,7 +179,7 @@
             $.ajax({
                 "type": "GET",
                 "data": parameters,
-                "url": "https://" + siteURL + "/facetsearch/facetsearchattribute/" + facetsearch_id + "/" + operation,
+                "url": PROTOCOL + "//" + siteURL + "/facetsearch/facetsearchattribute/" + facetsearch_id + "/" + operation,
                 "success": function( result ){
                     facetsearch_attributes = result;
                     
@@ -309,7 +311,7 @@
         // Carica le classi di contenuto
         contentClassesSearch = $.ajax({
             "type": "GET",
-            "url": "https://"+siteURL+"/itclassmanager/classlist/",
+            "url": PROTOCOL + "//"+siteURL+"/itclassmanager/classlist/",
             "success": function( result ){
                 
                 $.each(result, function(i,v){

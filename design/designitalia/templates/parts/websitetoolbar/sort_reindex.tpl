@@ -1,6 +1,7 @@
 
 <script>
     {literal}
+    let PROTOCOL = window.location.protocol;
     $(document).ready(function () {
     {/literal}
 
@@ -10,7 +11,7 @@
             var object_id = '{$child.contentobject_id}';
             {literal}
             $.ajax({
-                url: 'https://'+siteURL+'/index/object/' + object_id,
+                url: PROTOCOL + '//'+siteURL+'/index/object/' + object_id,
                 success: function(result){
 
                 }

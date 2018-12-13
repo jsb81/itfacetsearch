@@ -1,5 +1,7 @@
 {literal}
 <script>
+    let PROTOCOL = window.location.protocol;
+
     var siteURL = '{/literal}{ezini( 'SiteSettings', 'SiteURL'  )}{literal}';
     var class_identifier = "{/literal}{$classes}{literal}";
     var class_attributes = "{/literal}{$class_attributes}{literal}";
@@ -10,7 +12,7 @@
 
         $.ajax({
             "type": "GET",
-            "url": "https://"+siteURL+"/facetsearch/search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id,
+            "url": PROTOCOL + "//"+siteURL+"/facetsearch/search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id,
             success: function(data) {
                 showAccordion(data);
             }

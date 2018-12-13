@@ -5,6 +5,8 @@
 {* Script per la ricerca della classe persone (repo112) *}
 {literal}
 <script>
+    let PROTOCOL = window.location.protocol;
+
     var siteURL = '{/literal}{ezini( 'SiteSettings', 'SiteURL'  )}{literal}';
     var class_identifier = "{/literal}{$classes}{literal}";
     var class_attributes = "{/literal}{$class_attributes}{literal}";
@@ -65,7 +67,7 @@
              "bFilter": false,
              "ajax": {
                  "type": "GET",
-                 "url": "https://"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id,
+                 "url": PROTOCOL + "//"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id,
                  "data": function( d ) {
                      // Select Options
                      $('#search_form option:selected').each(function(){
@@ -155,8 +157,6 @@
                 $("#"+parent_id+"_choosen").hide();
             }
 
-            console.log("https://"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id);
-
             dataTable.ajax.reload();
             
             // Imposta il sistema per rimuovere la faccetta se è selezionato un valore
@@ -222,7 +222,7 @@
             $(this).html( $(this).html() +  spinner );
              class_attributes = "{/literal}{$export_attributes}{literal}";
 
-            var csv_download = "https://"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id + "/CSV";
+            var csv_download = PROTOCOL + "//"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id + "/CSV";
             csv_download        += '?' + $('#search_form').serialize();
 
             document.location.href = csv_download;

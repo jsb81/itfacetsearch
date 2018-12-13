@@ -4,6 +4,7 @@
 
 {literal}
 <script>
+    let PROTOCOL = window.location.protocol;
    
     var mapGlobal = null;
     var searchMapGlobal = null;
@@ -33,7 +34,7 @@
             "bFilter": false,
             "ajax": {
                 "type": "GET",
-                "url": "https://"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id,
+                "url": PROTOCOL + "//"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id,
                 "data": function( d ) {
                     // Select Options
                     $('#search_form option:selected').each(function(){
@@ -138,7 +139,7 @@
 
         previousMapSearch = $.ajax({
             "type": "GET",
-            "url": "https://"+siteURL+"/facetsearch/geo_search/" + class_identifier + "/" + facet_attributes +"/" + node_id,
+            "url": PROTOCOL + "//"+siteURL+"/facetsearch/geo_search/" + class_identifier + "/" + facet_attributes +"/" + node_id,
             "data": $('#search_form').serialize(),
             "success": function( result ){
                 if(result.features.length === 0){
@@ -431,7 +432,7 @@
             $(this).html( $(this).html() +  spinner );
              class_attributes = "{/literal}{$export_attributes}{literal}";
 
-            var csv_download = "https://"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id + "/CSV";
+            var csv_download = PROTOCOL + "//"+siteURL+"/facetsearch/datatable_search/" + class_identifier + "/" + class_attributes + "/" + facet_attributes + "/" + node_id + "/CSV";
             csv_download        += '?' + $('#search_form').serialize();
 
             document.location.href = csv_download;
